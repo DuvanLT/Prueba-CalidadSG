@@ -1,24 +1,24 @@
-<?php
-include("conectar.php"); 
+    <?php
+    include("conectar.php"); 
 
-$conectar = conectar(); 
+    $conectar = conectar(); 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nombre = $_POST['nombre'];
-    $contraseña = $_POST['contraseña'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nombre = $_POST['nombre'];
+        $contrasena = $_POST['contrasena'];
 
-    $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
+        $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    $stmt = $conectar->prepare("INSERT INTO registro (nombre, contraseña) VALUES (?, ?)");
-    $stmt->bind_param("ss", $nombre, $hashed_password);
+        $stmt = $conectar->prepare("INSERT INTO registro (nombre, contrasena) VALUES (?, ?)");
+        $stmt->bind_param("ss", $nombre, $hashed_password);
 
-    if ($stmt->execute()) {
-        echo "Registro exitoso!";
-        header("Location: iniciar.html");
-        exit();
-    } else {
-        echo "Error al enviar los datos: " . $stmt->error;
+        if ($stmt->execute()) {
+            echo "Registro exitoso!";
+            header("Location: iniciar.html");
+            exit();
+        } else {
+            echo "Error al enviar los datos: " . $stmt->error;
+        }
+        $stmt->close();
     }
-    $stmt->close();
-}
-?>
+    ?>

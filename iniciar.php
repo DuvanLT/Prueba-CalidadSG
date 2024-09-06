@@ -6,14 +6,14 @@ $conectar = conectar();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
-    $contraseña = $_POST['contraseña'];
+    $contrasena = $_POST['contrasena'];
 
-    if (empty($nombre) || empty($contraseña)) {
+    if (empty($nombre) || empty($contrasena)) {
         echo 'No se ha iniciado sesión.';
         exit();
     }
 
-    $stmt = $conectar->prepare("SELECT id, contraseña FROM registro WHERE nombre = ?");
+    $stmt = $conectar->prepare("SELECT id, contrasena FROM registro WHERE nombre = ?");
     $stmt->bind_param("s", $nombre);
     $stmt->execute();
     $stmt->store_result();
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->num_rows > 0) {
         $stmt->fetch();
         
-        if (password_verify($contraseña, $hashed_password)) {
+        if (password_verify($contrasena, $hashed_password)) {
             $_SESSION['user_id'] = $id;
             $_SESSION['nombre'] = $nombre;
             echo 'success'; 
