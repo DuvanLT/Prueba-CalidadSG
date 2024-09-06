@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         echo "Registro exitoso!";
+        header("Location: iniciar.html");
+        exit();
     } else {
         echo "Error al enviar los datos: " . $stmt->error;
     }
