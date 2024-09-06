@@ -3,7 +3,7 @@ body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background: #f5f5f5;
+    background: #f8f8f8;
     font-family: "Roboto", sans-serif;
 }
 
@@ -13,9 +13,7 @@ body{
 }
 
 header{
-    margin: 10px;
     box-shadow: 2px 2px 2px black;
-    border-radius: 12px;
     padding: 10px;
     background: white;
     display: flex;
@@ -32,10 +30,23 @@ nav{
     align-items: center;
 }
 
-nav a li:hover{
+nav li:hover{
     color: #318CE7;
 }
 
+.iniciarsesion:hover{
+    background: white;
+    color: #318CE7;
+}
+
+h2{
+    color: #318CE7;
+}
+
+
+nav li{
+    padding: 4px 8px;
+}
 
 nav ul{
     display: flex;
@@ -48,10 +59,40 @@ nav ul{
     justify-content: center;
     flex-direction: row;
     gap: 20px;
+    margin: 40px 0px;
+}
+
+.titulo{
+    color: #318CE7;
+    font-weight: bold;
+}
+
+footer{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+
+
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    li{
+        cursor: pointer;
+    }
+
+    li:hover{
+        color: #318CE7;
+    }
 }
 
 .card-container{
-    background: white;
+    background: rgb(230, 230, 230);
     min-width: 220px;
     max-width: 240px;
     border-radius: 24px;
@@ -60,6 +101,7 @@ nav ul{
     h2{
         font-size: 16px;
     }
+
 }
 
 .info_principal{
@@ -68,9 +110,85 @@ nav ul{
     align-items: center;
 }
 
+.hero{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.hero_text{
+    position: absolute;
+    z-index: 10;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+
+.iniciarsesion{
+    border: none;
+    background: #318CE7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero_container{
+    min-width: 320px;
+    max-width: 2600px;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+.hero_container img{
+    width: 100%;
+
+    filter: brightness(40%);
+}
+
+@keyframes moverArribaAbajo {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px); /* Ajusta la distancia que se mueve */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+svg{
+    animation: moverArribaAbajo 2s infinite;
+}
+
+
+
+
 @media (max-width: 700px) {
    .clima-default{
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   }
+
+   .hero_text{
+    font-size: 24px;
+   }
+
+   footer{
     flex-direction: column;
    }
 }
+
+
+@media (max-width: 400px) {
+    .hero_text{
+        font-size:14px;
+       }
+}
+

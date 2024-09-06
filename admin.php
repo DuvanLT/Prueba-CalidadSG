@@ -33,7 +33,7 @@ $nombre = $_SESSION['nombre'];
     </header>   
     <div class="geolocalizacion">
         <h4>Geolocalización automática</h4>
-        <p>Guardaremos el clima de la zona en la que te encuentres en cada momento</p>
+        <p>Guardaremos el clima por ti</p>
         <div class="opciones">
             <button onclick="aceptarGeolocalizacion()">Aceptar</button>
             <button onclick="rechazarGeolocalizacion()">Rechazar</button>
@@ -55,7 +55,7 @@ $nombre = $_SESSION['nombre'];
     <section class="Ingresar">
         <form id="formCiudad">
             <label for="ciudadInput">Ingresa tu Ciudad:</label>
-            <input type="text" name="ciudad" id="ciudadInput" />
+            <input type="text" name="ciudad" id="ciudadInput" placeholder="Cali" />
             <button type="submit">Ingresar</button>
         </form>
     </section>
@@ -179,5 +179,25 @@ $nombre = $_SESSION['nombre'];
             }
         }
     </script>
+     <footer>
+        <ul>
+            <li  class="titulo">Ayuda</li>
+            <li>olvide mi contraseña</li>
+            <li>olvide mi usuario</li>
+            <li>olvide algo</li>
+        </ul>
+        <ul>
+            <li class="titulo">CalidadSG</li>
+            <li>¿Quienes somos?</li>
+            <li>¿Quienes somos?</li>
+            <li>¿Quienes somos?</li>
+        </ul>
+        <ul>
+            <li class="titulo">Trabaja con Nosotros</li>
+            <li>Aplicar</li>
+            <li>Aplicar</li>
+            <li>Aplicar</li>
+        </ul>
+    </footer>   
 </body>
 </html>
