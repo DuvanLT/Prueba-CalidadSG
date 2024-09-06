@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Contraseña incorrecta.";
         }
     } else {
-        echo "Usuario no encontrado.";
+        echo "Usuario no encontrado. Si no tienes una cuenta Registrate <a href='register.html'>aqui</a>";
     }
 
     $stmt->close();

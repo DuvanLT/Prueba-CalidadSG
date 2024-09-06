@@ -13,8 +13,8 @@
             <img src="Multimedia/clima.png" alt="logo" />
             </picture>
             <ul>
-                <li>INICIO</li>
-                <li>INICIAR SESION</li>
+            <a href="index.php"> <li>INICIO</li></a>
+            <a href="iniciar.html"><li>INICIAR SESION</li> </a>
             </ul>
         </nav>
     
@@ -38,14 +38,17 @@
             if (isset($data['main'])) {
                 $icon = $data['weather'][0]['icon'];
                 $imgUrl = "http://openweathermap.org/img/wn/{$icon}@2x.png";
+                $description = isset($data['weather'][0]['description']) ? htmlspecialchars($data['weather'][0]['description']) : 'Descripción no disponible';
+
                 echo '<div class="card-container">';
                 echo '<picture>';
                 echo "<img src=\"{$imgUrl}\" alt=\"Icono del clima\" />";
                 echo '</picture>';
                 echo '<div class="info_principal">';
                 echo "<h2>" . htmlspecialchars($data['name']) . "</h2>";
-                echo "<p>Temperatura: " . htmlspecialchars($data['main']['temp']) . "°C</p>";
+                echo "<p>". htmlspecialchars($data['main']['temp']) . "°C</p>";
                 echo "</div>";
+                echo "<p>Descripción: " . $description . "</p>";
                 echo '</div>';
             } else {
                 echo '<div class="card-container">';
