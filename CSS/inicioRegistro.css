@@ -7,16 +7,8 @@ body{
     font-family: "Roboto", sans-serif;
 }
 
-
-.logo img{
-    align-items: center;
-    width: 32px;
-}
-
 header{
-    margin: 10px;
     box-shadow: 2px 2px 2px black;
-    border-radius: 12px;
     padding: 10px;
     background: white;
     display: flex;
@@ -24,6 +16,14 @@ header{
 
 a{
     text-decoration: none;
+}
+
+nav li:hover{
+    color: #318CE7;
+}
+.logo img{
+    align-items: center;
+    width: 32px;
 }
 
 nav{
@@ -91,4 +91,17 @@ button{
 form{
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 600px) {
+    .formulario{
+        min-width: 280px;
+        max-width: 380px;
+        margin: 4px;
+        padding: 10px;
+    }
+
+    input{
+        padding: 4px 0px;
+    }
 }
