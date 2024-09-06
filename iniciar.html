@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS\inicioRegistro.css">
+    <link rel="stylesheet" href="CSS/inicioRegistro.css">
     <title>Formulario de Inicio de Sesión</title>
 </head>
 <body>
@@ -17,19 +17,40 @@
             <a href="iniciar.html"><li>INICIAR SESION</li> </a>
             </ul>
         </nav>
-    
     </header>   
     <div class="formulario">
-    <h2>Inicia Sesión</h2>
-    <form action="iniciar.php" method="POST">
-        <label for="nombre">Nombre:</label> 
-        <input type="text" id="nombre" name="nombre"  placeholder="Tu nombre" required>
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña"  placeholder="Tu contraseña" required>
-        
-        <button type="submit">INICIAR</button>
-        <p>¿Nuevo por aqui? <a href="register.html">Registrate aqui</a> </p>
-    </form>
+        <h2>Inicia Sesión</h2>
+        <form id="loginForm">
+            <label for="nombre">Nombre:</label> 
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
+            <button type="submit">INICIAR</button>
+            <p>¿Nuevo por aquí? <a href="register.html">Regístrate aquí</a> </p>
+        </form>
     </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            const formData = new FormData(this);
+
+            fetch('iniciar.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'success') {
+                    window.location.href = 'admin.php'; // Redirige a admin.php si el inicio de sesión es exitoso
+                } else {
+                    alert(data); // Muestra el mensaje de error
+                }
+            })
+            .catch(error => {
+                console.error("Error al iniciar sesión:", error);
+            });
+        });
+    </script>
 </body>
 </html>
