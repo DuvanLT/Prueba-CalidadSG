@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS\style.css">
     <title>My Climax</title>
 </head>
 <body>
     <header>
         <nav>
-            <img src="" alt="logo" />
-
+            <picture class="logo">
+            <img src="Multimedia/clima.png" alt="logo" />
+            </picture>
             <ul>
                 <li>INICIO</li>
-                <li>INICIAR SECCION</li>
+                <li>INICIAR SESION</li>
             </ul>
         </nav>
     
     </header>   
+    <section class="clima-default">
         <?php
         $apiKey = '65f580c6cb4d19f5049453ecf374a233';
         $ciudades = ['Bogota', 'Cali', 'Jamundi', 'Cartagena', 'Medellin'];
@@ -34,10 +36,8 @@
             $data = json_decode($response, true);
 
             if (isset($data['main'])) {
-                // Obtiene la URL del icono del clima
                 $icon = $data['weather'][0]['icon'];
                 $imgUrl = "http://openweathermap.org/img/wn/{$icon}@2x.png";
-
                 echo '<div class="card-container">';
                 echo '<picture>';
                 echo "<img src=\"{$imgUrl}\" alt=\"Icono del clima\" />";
@@ -59,5 +59,6 @@
             }
         }
         ?> 
+    </section>
 </body>
 </html>
