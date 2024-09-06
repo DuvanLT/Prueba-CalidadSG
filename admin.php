@@ -1,13 +1,11 @@
 <?php
-session_start(); // Inicia la sesión
+session_start(); 
 
-// Verifica si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: iniciar.html"); // Redirige a la página de inicio de sesión si no está autenticado
+    header("Location: iniciar.html"); 
     exit();
 }
 
-// Aquí puedes acceder al ID del usuario y cualquier otra información de la sesión
 $user_id = $_SESSION['user_id'];
 $nombre = $_SESSION['nombre'];
 ?>
@@ -17,10 +15,22 @@ $nombre = $_SESSION['nombre'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="CSS\admin.css">
     <title>Geolocalización</title>
 </head>
 <body>
+<header>
+        <nav>
+            <picture class="logo">
+            <img src="Multimedia/clima.png" alt="logo" />
+            </picture>
+            <ul>
+            <a href="index.php"> <li>INICIO</li></a>
+            <a href="historial.php"><li>HISTORIAL DE CLIMAS</li> </a>
+            </ul>
+        </nav>
+    
+    </header>   
     <div class="geolocalizacion">
         <h4>Geolocalización automática</h4>
         <p>Guardaremos el clima de la zona en la que te encuentres en cada momento</p>
@@ -44,7 +54,7 @@ $nombre = $_SESSION['nombre'];
     </section>
     <section class="Ingresar">
         <form id="formCiudad">
-            <label for="ciudadInput">Ingresa tu Ciudad</label>
+            <label for="ciudadInput">Ingresa tu Ciudad:</label>
             <input type="text" name="ciudad" id="ciudadInput" />
             <button type="submit">Ingresar</button>
         </form>
@@ -89,7 +99,6 @@ $nombre = $_SESSION['nombre'];
                     document.getElementById("clima-icono").src = imgUrl;
                     document.getElementById("hora").innerText = new Date();
 
-                    // Enviar los datos automáticamente al servidor
                     enviarDatosAlServidor(ciudad, temperatura, descripcion, new Date().toISOString());
                 })
                 .catch(error => {
@@ -128,7 +137,7 @@ $nombre = $_SESSION['nombre'];
             formData.append('temperatura', temperatura);
             formData.append('descripcion', descripcion);
             formData.append('fecha', fecha);
-            formData.append('user_id', '<?php echo $user_id; ?>'); // Incluye el ID de usuario en los datos
+            formData.append('user_id', '<?php echo $user_id; ?>'); 
 
             fetch('insertar.php', {
                 method: 'POST',

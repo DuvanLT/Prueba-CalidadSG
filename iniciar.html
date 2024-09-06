@@ -10,23 +10,23 @@
     <header>
         <nav>
             <picture class="logo">
-            <img src="Multimedia/clima.png" alt="logo" />
+                <img src="Multimedia/clima.png" alt="logo" />
             </picture>
             <ul>
-            <a href="index.php"> <li>INICIO</li></a>
-            <a href="iniciar.html"><li>INICIAR SESION</li> </a>
+                <a href="index.php"><li>INICIO</li></a>
+                <a href="iniciar.html"><li>INICIAR SESIÓN</li></a>
             </ul>
         </nav>
     </header>   
     <div class="formulario">
         <h2>Inicia Sesión</h2>
-        <form id="loginForm">
+        <form id="loginForm" method="POST">
             <label for="nombre">Nombre:</label> 
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
             <label for="contraseña">Contraseña:</label>
             <input type="password" id="contraseña" name="contraseña" placeholder="Tu contraseña" required>
             <button type="submit">INICIAR</button>
-            <p>¿Nuevo por aquí? <a href="register.html">Regístrate aquí</a> </p>
+            <p>¿Nuevo por aquí? <a href="register.html">Regístrate aquí</a></p>
         </form>
     </div>
     <script>
@@ -45,6 +45,7 @@
                     window.location.href = 'admin.php'; 
                 } else {
                     alert(data); 
+                }
             })
             .catch(error => {
                 console.error("Error al iniciar sesión:", error);

@@ -32,6 +32,11 @@ nav{
     align-items: center;
 }
 
+nav a li:hover{
+    color: #318CE7;
+}
+
+
 nav ul{
     display: flex;
     gap: 20px;
@@ -63,7 +68,7 @@ nav ul{
     align-items: center;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 700px) {
    .clima-default{
     flex-wrap: wrap;
     flex-direction: column;

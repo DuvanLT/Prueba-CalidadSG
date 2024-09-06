@@ -39,6 +39,9 @@ nav ul{
     list-style: none;
 }
 
+nav a li:hover{
+    color: #318CE7;
+}
 
 .formulario{
     min-width: 280px;
@@ -73,4 +76,19 @@ button{
     color: white;
     font-weight: bold;
     cursor: pointer;
+}
+
+.geolocalizacion{
+    padding: 10px;
+}
+
+.ingresar{
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
 }
