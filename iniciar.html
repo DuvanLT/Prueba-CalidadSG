@@ -31,7 +31,7 @@
     </div>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío del formulario
+            event.preventDefault(); 
 
             const formData = new FormData(this);
 
@@ -42,10 +42,9 @@
             .then(response => response.text())
             .then(data => {
                 if (data === 'success') {
-                    window.location.href = 'admin.php'; // Redirige a admin.php si el inicio de sesión es exitoso
+                    window.location.href = 'admin.php'; 
                 } else {
-                    alert(data); // Muestra el mensaje de error
-                }
+                    alert(data); 
             })
             .catch(error => {
                 console.error("Error al iniciar sesión:", error);
